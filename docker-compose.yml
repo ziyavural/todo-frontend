@@ -1,0 +1,7 @@
+version: '2'
+services:
+  node-file-storage:
+    image: ziyavural/ziya-vural-todo-frontend:1.0.0
+    container_name: ziya-vural-todo-frontend
+    ports:
+      - "3000:3000"
