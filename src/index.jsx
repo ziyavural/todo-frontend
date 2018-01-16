@@ -133,9 +133,9 @@ class TodoApp extends React.Component {
         this.state = {
             data: []
         };
-        this.apiUrl = 'http://localhost:8913/todos';
-        this.loginUrl = 'http://localhost:8913/login';
-        this.registerUrl = 'http://localhost:8913/users'
+        this.apiUrl = 'http://todolistapi_todolist_1:8913/todos';
+        this.loginUrl = 'http://todolistapi_todolist_1:8913/login';
+        this.registerUrl = 'http://todolistapi_todolist_1:8913/users'
     }
 
     componentDidUpdate() {

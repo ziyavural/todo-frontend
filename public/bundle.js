@@ -281,9 +281,9 @@
 	        _this.state = {
 	            data: []
 	        };
-	        _this.apiUrl = 'http://localhost:8913/todos';
-	        _this.loginUrl = 'http://localhost:8913/login';
-	        _this.registerUrl = 'http://localhost:8913/users';
+	        _this.apiUrl = 'http://todolistapi_todolist_1:8913/todos';
+	        _this.loginUrl = 'http://todolistapi_todolist_1:8913/login';
+	        _this.registerUrl = 'http://todolistapi_todolist_1:8913/users';
 	        return _this;
 	    }
 	
