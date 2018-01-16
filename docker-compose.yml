@@ -1,7 +1,36 @@
-version: '2'
+version: '2.1'
+
 services:
-  node-file-storage:
-    image: ziyavural/ziya-vural-todo-frontend:1.0.0
-    container_name: ziya-vural-todo-frontend
+  db:
+    image: arungupta/couchbase
+    container_name: todolistapi_db_1
+    ports:
+      - 8091:8091
+      - 8092:8092
+      - 8093:8093
+      - 8094:8094
+      - 11210:11210
+    volumes:
+      - "./configure.sh:/configure.sh"
+    command:
+      - /configure.sh
+    healthcheck:
+        test: ["CMD", "curl", "-f", "http://localhost:8091/pools"]
+        interval: 30s
+        timeout: 10s
+        retries: 5
+  todolist:
+    image: ziyavural/todo-list-api
+    container_name: todolistapi_todolist_1
+    environment:
+      - COUCHBASE_HOST=todolistapi_db_1
+    depends_on:
+      db:
+       condition: service_healthy
+    ports:
+      - 8913:8913
+  todo-frontend:
+    image: ziyavural/todofrontend
+    container_name: todo-frontend
     ports:
       - "3000:3000"
